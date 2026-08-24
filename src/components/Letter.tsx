@@ -18,7 +18,7 @@ export default function Letter() {
   });
 
   const cardVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.97, y: 16 },
+    hidden: { opacity: 0, scale: 0.97, y: 14 },
     visible: {
       opacity: 1,
       scale: 1,
@@ -31,7 +31,7 @@ export default function Letter() {
   };
 
   const itemFade = (delay: number): Variants => ({
-    hidden: { opacity: 0, y: 12 },
+    hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
       y: 0,
@@ -44,7 +44,7 @@ export default function Letter() {
   });
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-10 sm:py-14 md:py-20 overflow-x-hidden">
+    <div className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 py-6 sm:py-10 md:py-16 overflow-x-hidden">
       {/* 1. Atmospheric Buddha Photo Background Layer */}
       <div
         className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
@@ -96,9 +96,9 @@ export default function Letter() {
       {/* 2. Ambient Falling Blossom Petals Layer (Z-1) */}
       <FallingPetals />
 
-      {/* 3. Main Letter Card - Generously Expanded (65-75% Viewport Height Footprint) */}
+      {/* 3. Main Letter Card - Cleanly Contained Box with Generous Horizontal Inset */}
       <motion.main
-        className="relative z-10 w-full max-w-[440px] sm:max-w-xl md:max-w-2xl mx-auto my-auto transition-transform duration-300 ease-out hover:scale-[1.008]"
+        className="relative z-10 w-full max-w-[400px] sm:max-w-[500px] md:max-w-[540px] mx-auto my-auto transition-transform duration-300 ease-out hover:scale-[1.008] box-border"
         variants={cardVariants}
         initial="hidden"
         animate="visible"
@@ -107,20 +107,20 @@ export default function Letter() {
           setTimeout(() => setNameSparkles(true), 400);
         }}
       >
-        {/* Outer Frame Container with Soft Drop Shadow & Rounded-3xl Silhouette */}
+        {/* Outer Frame Container with Soft Drop Shadow & Clean Border Radius */}
         <div
-          className="w-full rounded-3xl p-3 sm:p-4 md:p-5"
+          className="w-full rounded-2xl sm:rounded-3xl p-1.5 sm:p-2.5 box-border"
           style={{
             backgroundColor: "rgba(242, 234, 224, 0.97)",
             backdropFilter: "blur(14px)",
             WebkitBackdropFilter: "blur(14px)",
             border: `1px solid ${content.theme.sage}75`,
-            boxShadow: `0 24px 56px -12px rgba(30, 51, 44, 0.22), 0 8px 24px rgba(30, 51, 44, 0.08)`,
+            boxShadow: `0 20px 48px -10px rgba(30, 51, 44, 0.2), 0 6px 16px rgba(30, 51, 44, 0.08)`,
           }}
         >
-          {/* Inset Inner Frame Container with Generous 20-24px Vertical Rhythm (p-8 sm:p-10 md:p-12) */}
+          {/* Inset Inner Frame Container with Explicit px-6 (24px) Minimum Horizontal Margin */}
           <div
-            className="w-full rounded-2xl p-8 sm:p-10 md:p-12 flex flex-col items-center text-center"
+            className="w-full rounded-xl sm:rounded-2xl px-6 py-7 sm:px-9 sm:py-10 md:px-11 md:py-12 flex flex-col items-center text-center box-border overflow-hidden"
             style={{
               border: `1px solid ${content.theme.sage}45`,
               backgroundColor: "rgba(242, 234, 224, 0.75)",
@@ -131,7 +131,7 @@ export default function Letter() {
               variants={itemFade(0.05)}
               initial="hidden"
               animate="visible"
-              className="text-xs sm:text-sm font-semibold tracking-[0.26em] uppercase mb-4 sm:mb-5"
+              className="text-[11px] sm:text-xs md:text-sm font-semibold tracking-[0.22em] uppercase mb-3 max-w-full"
               style={{ color: content.theme.oak }}
             >
               {content.eyebrowLabel}
@@ -142,31 +142,31 @@ export default function Letter() {
               variants={itemFade(0.1)}
               initial="hidden"
               animate="visible"
-              className="mb-5 sm:mb-6 flex justify-center"
+              className="mb-4 flex justify-center"
             >
               <svg
                 viewBox="0 0 24 24"
-                className="w-5 h-5 sm:w-6 sm:h-6"
+                className="w-4 h-4 sm:w-5 sm:h-5"
                 fill={content.theme.oak}
               >
                 <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" />
               </svg>
             </motion.div>
 
-            {/* 3. Headline: Happy Teacher's Day (text-4xl / text-3xl Mobile, Semibold 600) */}
-            <div className="mb-6 sm:mb-7 flex flex-col items-center w-full">
-              <div className="w-full flex justify-center">
+            {/* 3. Headline: Happy Teacher's Day (Well-Proportioned Semibold 600) */}
+            <div className="mb-4 sm:mb-5 flex flex-col items-center w-full max-w-full">
+              <div className="w-full flex justify-center max-w-full">
                 <InkReveal
                   text={content.headlineHappy}
                   delay={0.15}
-                  className="font-serif-heading text-4xl sm:text-5xl md:text-6xl font-semibold leading-none tracking-normal"
+                  className="font-serif-heading text-3xl sm:text-4xl md:text-5xl font-semibold leading-none tracking-normal"
                 />
               </div>
-              <div className="w-full flex justify-center mt-2 sm:mt-2.5">
+              <div className="w-full flex justify-center mt-1 sm:mt-1.5 max-w-full">
                 <InkReveal
                   text={content.headlineTeachersDay}
                   delay={0.38}
-                  className="font-serif-heading italic text-3xl sm:text-4xl md:text-5xl font-normal leading-tight tracking-normal"
+                  className="font-serif-heading italic text-2xl sm:text-3xl md:text-4xl font-normal leading-tight tracking-normal"
                 />
               </div>
             </div>
@@ -176,27 +176,27 @@ export default function Letter() {
               variants={itemFade(0.48)}
               initial="hidden"
               animate="visible"
-              className="w-16 sm:w-20 h-px mb-6 sm:mb-7"
-              style={{ backgroundColor: content.theme.oak, opacity: 0.5 }}
+              className="w-14 sm:w-16 h-px mb-4 sm:mb-5"
+              style={{ backgroundColor: content.theme.oak, opacity: 0.45 }}
             />
 
-            {/* 5. Body Message Paragraph (16px base mobile, leading-[1.8]) */}
+            {/* 5. Body Message Paragraph with Clean Word Wrapping and Explicit Margins */}
             <motion.p
               variants={itemFade(0.55)}
               initial="hidden"
               animate="visible"
-              className="font-sans-body text-base sm:text-[17px] md:text-lg leading-[1.8] sm:leading-[1.85] font-normal mb-6 sm:mb-8"
+              className="font-sans-body text-[14px] sm:text-[15.5px] md:text-[16.5px] leading-[1.75] font-normal mb-5 sm:mb-6 max-w-full text-center"
               style={{ color: content.theme.ink, opacity: 0.88 }}
             >
               {content.letterBody}
             </motion.p>
 
-            {/* 6. Teacher Name via InkReveal (text-3xl+ Semibold 600 Calligraphic Serif) */}
-            <div className="relative mb-2 sm:mb-2.5 w-full flex justify-center items-center">
+            {/* 6. Teacher Name via InkReveal (Calligraphic Serif Semibold 600) */}
+            <div className="relative mb-1.5 sm:mb-2 w-full flex justify-center items-center max-w-full">
               <InkReveal
                 text={content.teacherName}
                 delay={0.65}
-                className="font-serif-heading text-3xl sm:text-4xl md:text-5xl font-semibold tracking-normal leading-tight"
+                className="font-serif-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-normal leading-tight"
               />
               <SparkleBurst trigger={nameSparkles} count={4} minRadius={20} maxRadius={50} />
             </div>
@@ -206,7 +206,7 @@ export default function Letter() {
               variants={itemFade(0.72)}
               initial="hidden"
               animate="visible"
-              className="text-xs sm:text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-6 sm:mb-8"
+              className="text-[11px] sm:text-xs md:text-sm font-medium tracking-[0.16em] uppercase mb-5 sm:mb-6 max-w-full"
               style={{ color: content.theme.sage }}
             >
               {content.subtitle}
@@ -217,27 +217,27 @@ export default function Letter() {
               variants={itemFade(0.78)}
               initial="hidden"
               animate="visible"
-              className="w-full h-px mb-6 sm:mb-7"
-              style={{ backgroundColor: content.theme.sage, opacity: 0.35 }}
+              className="w-full h-px mb-4 sm:mb-5"
+              style={{ backgroundColor: content.theme.sage, opacity: 0.3 }}
             />
 
-            {/* 9. Two-Column Row: DATE | VENUE */}
+            {/* 9. Two-Column Row: DATE | VENUE with Word Wrap Protection */}
             <motion.div
               variants={itemFade(0.84)}
               initial="hidden"
               animate="visible"
-              className="w-full grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6 mb-6 sm:mb-7"
+              className="w-full grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-4 mb-4 sm:mb-5 px-1 max-w-full"
             >
               {/* Column 1: Date */}
               <div className="flex flex-col items-center">
                 <span
-                  className="text-[11px] sm:text-xs font-semibold tracking-[0.18em] uppercase mb-1.5"
+                  className="text-[10px] sm:text-xs font-semibold tracking-[0.14em] uppercase mb-0.5"
                   style={{ color: content.theme.sage }}
                 >
                   {content.dateLabel}
                 </span>
                 <span
-                  className="text-sm sm:text-base md:text-lg font-semibold"
+                  className="text-xs sm:text-sm md:text-base font-semibold"
                   style={{ color: content.theme.ink }}
                 >
                   {content.date}
@@ -246,20 +246,20 @@ export default function Letter() {
 
               {/* Vertical Divider */}
               <div
-                className="h-10 sm:h-12 w-px"
+                className="h-8 sm:h-9 w-px"
                 style={{ backgroundColor: content.theme.sage, opacity: 0.35 }}
               />
 
               {/* Column 2: Venue */}
               <div className="flex flex-col items-center">
                 <span
-                  className="text-[11px] sm:text-xs font-semibold tracking-[0.18em] uppercase mb-1.5"
+                  className="text-[10px] sm:text-xs font-semibold tracking-[0.14em] uppercase mb-0.5"
                   style={{ color: content.theme.sage }}
                 >
                   {content.venueLabel}
                 </span>
                 <span
-                  className="text-sm sm:text-base md:text-lg font-semibold leading-snug text-center break-words max-w-[68%] sm:max-w-[75%]"
+                  className="text-xs sm:text-sm md:text-base font-semibold leading-snug text-center break-words max-w-full"
                   style={{ color: content.theme.ink }}
                 >
                   {content.venue}
@@ -272,8 +272,8 @@ export default function Letter() {
               variants={itemFade(0.9)}
               initial="hidden"
               animate="visible"
-              className="w-full h-px mb-5 sm:mb-6"
-              style={{ backgroundColor: content.theme.sage, opacity: 0.35 }}
+              className="w-full h-px mb-3 sm:mb-4"
+              style={{ backgroundColor: content.theme.sage, opacity: 0.3 }}
             />
 
             {/* 11. Small Italic Footer */}
@@ -281,17 +281,17 @@ export default function Letter() {
               variants={itemFade(0.95)}
               initial="hidden"
               animate="visible"
-              className="flex items-center justify-center gap-2"
+              className="flex items-center justify-center gap-1.5 max-w-full"
             >
               <span
-                className="font-serif-heading italic text-xs sm:text-sm md:text-base tracking-wide"
+                className="font-serif-heading italic text-xs sm:text-sm tracking-wide"
                 style={{ color: content.theme.sage }}
               >
                 {content.footerText}
               </span>
               <svg
                 viewBox="0 0 24 24"
-                className="w-4 h-4 sm:w-4.5 sm:h-4.5"
+                className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0"
                 fill={content.theme.sage}
               >
                 <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C21 5 14 5.25 9 6.25C4 7.25 2 11.5 2 13.5C2 15.5 3.75 17.25 3.75 17.25C5.9 12.08 8 10 17 8Z" />
