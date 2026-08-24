@@ -13,10 +13,7 @@ export default function Letter() {
       opacity: 1,
       scale: 1,
       y: 0,
-      transition: {
-        duration: 0.65,
-        ease: [0.22, 1, 0.36, 1],
-      },
+      transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
@@ -25,31 +22,24 @@ export default function Letter() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      },
+      transition: { duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] },
     },
   });
 
   return (
     <div className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center p-3 sm:p-6 md:p-10 lg:p-12 overflow-x-hidden">
-      {/* Floating Card Container with Ambient Depth Glow */}
       <div className="relative w-full max-w-[420px] sm:max-w-[540px] md:max-w-[620px] lg:max-w-[640px] mx-auto my-auto flex items-center justify-center">
-        
-        {/* Soft Ambient Radial Aura behind card for visible elevation & separation */}
+
         <div
-          className="absolute -inset-4 sm:-inset-8 md:-inset-12 rounded-[44px] pointer-events-none opacity-70 filter blur-2xl sm:blur-3xl transition-opacity duration-700"
+          className="absolute -inset-4 sm:-inset-8 md:-inset-12 rounded-[44px] pointer-events-none opacity-70 filter blur-2xl sm:blur-3xl"
           style={{
             background: `radial-gradient(ellipse at center, rgba(250, 246, 239, 0.9) 0%, rgba(185, 143, 98, 0.22) 50%, rgba(138, 154, 130, 0.1) 75%, transparent 90%)`,
           }}
           aria-hidden="true"
         />
 
-        {/* Elevated Glassmorphism Card */}
         <motion.main
-          className="relative z-10 w-full rounded-[30px] sm:rounded-[36px] md:rounded-[40px] box-border overflow-hidden transition-all duration-300"
+          className="relative z-10 w-full rounded-[30px] sm:rounded-[36px] md:rounded-[40px] box-border overflow-hidden"
           variants={cardVariants}
           initial="hidden"
           animate="visible"
@@ -66,7 +56,6 @@ export default function Letter() {
             `,
           }}
         >
-          {/* Subtle Top Inner Highlight Gradient Stroke Rim */}
           <div
             className="absolute inset-0 pointer-events-none rounded-[30px] sm:rounded-[36px] md:rounded-[40px]"
             style={{
@@ -79,21 +68,33 @@ export default function Letter() {
             }}
           />
 
-          {/* Inner Content Wrapper: max-height 100svh (100dvh fallback), overflow-y auto, hidden scrollbar, spacious padding */}
-          <div className="w-full max-h-[calc(100svh-1.5rem)] sm:max-h-[calc(100dvh-3rem)] md:max-h-[calc(100dvh-3.5rem)] overflow-y-auto no-scrollbar px-7 py-9 sm:px-11 sm:py-13 md:px-14 md:py-16 flex flex-col items-center text-center box-border">
-            
-            {/* 1. Pill-Shaped Eyebrow Badge */}
+          <div
+            className="w-full overflow-y-auto no-scrollbar flex flex-col items-center text-center box-border"
+            style={{
+              maxHeight: "calc(100svh - 1.5rem)",
+              paddingLeft: 28,
+              paddingRight: 28,
+              paddingTop: 40,
+              paddingBottom: 40,
+            }}
+          >
+            {/* 1. Eyebrow Badge */}
             <motion.div
               variants={itemFade(0.08)}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center justify-center px-4 py-1.5 sm:px-5 sm:py-1.5 rounded-full mb-3 sm:mb-3.5 max-w-full"
+              className="inline-flex items-center justify-center rounded-full max-w-full"
               style={{
                 backgroundColor: "rgba(168, 162, 154, 0.18)",
                 border: `1px solid ${content.theme.sandBeige}90`,
                 backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(10px)",
                 boxShadow: "0 2px 6px rgba(74, 63, 51, 0.04), inset 0 1px 1px rgba(250, 246, 239, 0.7)",
+                paddingLeft: 18,
+                paddingRight: 18,
+                paddingTop: 7,
+                paddingBottom: 7,
+                marginBottom: 14,
               }}
             >
               <span
@@ -104,18 +105,19 @@ export default function Letter() {
               </span>
             </motion.div>
 
-            {/* 2. Buddha Element Lotus / Mandala Connected Pill Divider */}
+            {/* 2. Buddha Divider */}
             <motion.div
               variants={itemFade(0.14)}
               initial="hidden"
               animate="visible"
-              className="mb-5 sm:mb-6 md:mb-7 flex justify-center"
+              className="flex justify-center"
+              style={{ marginBottom: 24 }}
             >
               <BuddhaMotifDivider />
             </motion.div>
 
-            {/* 3. Heading: Happy Teacher's Day (Balanced, harmonized proportions) */}
-            <div className="mb-6 sm:mb-7 md:mb-8 flex flex-col items-center w-full max-w-full">
+            {/* 3. Heading */}
+            <div className="flex flex-col items-center w-full max-w-full" style={{ marginBottom: 32 }}>
               <div className="w-full flex justify-center max-w-full">
                 <RippleReveal
                   text={content.headlineHappy}
@@ -124,7 +126,7 @@ export default function Letter() {
                   style={{ color: content.theme.deepBark }}
                 />
               </div>
-              <div className="w-full flex justify-center mt-1 sm:mt-1.5 max-w-full">
+              <div className="w-full flex justify-center max-w-full" style={{ marginTop: 6 }}>
                 <RippleReveal
                   text={content.headlineTeachersDay}
                   delay={0.36}
@@ -134,54 +136,54 @@ export default function Letter() {
               </div>
             </div>
 
-            {/* 4. Thicker / Longer Horizontal Divider */}
+            {/* 4. Divider under heading */}
             <motion.div
               variants={itemFade(0.48)}
               initial="hidden"
               animate="visible"
-              className="w-16 sm:w-20 md:w-24 h-px mb-6 sm:mb-8 md:mb-9 rounded-full"
-              style={{
-                backgroundColor: content.theme.lightOakWood,
-                opacity: 0.5,
-              }}
+              className="w-16 sm:w-20 md:w-24 h-px rounded-full"
+              style={{ backgroundColor: content.theme.lightOakWood, opacity: 0.5, marginBottom: 32 }}
             />
 
-            {/* 5. Letter Body Message with Natural, Unhurried Line-Height */}
+            {/* 5. Letter Body */}
             <motion.p
               variants={itemFade(0.55)}
               initial="hidden"
               animate="visible"
-              className="font-sans-body text-[14.5px] sm:text-[15.5px] md:text-[16.5px] lg:text-[17px] leading-[1.72] sm:leading-[1.78] md:leading-[1.82] font-normal mb-8 sm:mb-10 md:mb-11 max-w-xl text-center"
-              style={{ color: content.theme.deepBark, opacity: 0.94 }}
+              className="font-sans-body text-[14px] sm:text-[15px] md:text-[16px] font-normal text-center"
+              style={{
+                color: content.theme.deepBark,
+                opacity: 0.94,
+                lineHeight: 1.8,
+                maxWidth: 440,
+                marginBottom: 44,
+              }}
             >
               {content.letterBody}
             </motion.p>
 
-            {/* 6. Section Separation Divider above Mentor Block */}
+            {/* 6. Divider above mentor block (guaranteed gap both sides via own margin, not adjacent to paragraph) */}
             <motion.div
               variants={itemFade(0.58)}
               initial="hidden"
               animate="visible"
-              className="w-16 sm:w-20 md:w-24 h-px mb-5 sm:mb-6 rounded-full"
-              style={{
-                backgroundColor: content.theme.stoneGray,
-                opacity: 0.45,
-              }}
+              className="w-16 sm:w-20 md:w-24 h-px rounded-full"
+              style={{ backgroundColor: content.theme.stoneGray, opacity: 0.45, marginBottom: 20 }}
             />
 
-            {/* 7. Structural Eyebrow: HONOURING OUR MENTOR */}
+            {/* 7. HONOURING OUR MENTOR */}
             <motion.p
               variants={itemFade(0.62)}
               initial="hidden"
               animate="visible"
-              className="text-[9.5px] sm:text-[10.5px] font-semibold tracking-[0.24em] uppercase mb-1.5 sm:mb-2 text-center"
-              style={{ color: content.theme.stoneGray }}
+              className="text-[9.5px] sm:text-[10.5px] font-semibold tracking-[0.24em] uppercase text-center"
+              style={{ color: content.theme.stoneGray, marginBottom: 8 }}
             >
               {content.mentorEyebrowLabel}
             </motion.p>
 
-            {/* 8. Teacher Name via RippleReveal */}
-            <div className="relative mb-1 sm:mb-1.5 w-full flex justify-center items-center max-w-full">
+            {/* 8. Teacher Name */}
+            <div className="relative w-full flex justify-center items-center max-w-full" style={{ marginBottom: 6 }}>
               <RippleReveal
                 text={content.teacherName}
                 delay={0.68}
@@ -195,61 +197,50 @@ export default function Letter() {
               variants={itemFade(0.74)}
               initial="hidden"
               animate="visible"
-              className="text-xs sm:text-[13px] font-medium tracking-[0.2em] uppercase mb-6 sm:mb-8 md:mb-9 max-w-full"
-              style={{ color: content.theme.softSage }}
+              className="text-xs sm:text-[13px] font-medium tracking-[0.2em] uppercase max-w-full"
+              style={{ color: content.theme.softSage, marginBottom: 32 }}
             >
               {content.subtitle}
             </motion.p>
 
-            {/* 10. Thin Full-Width Divider */}
+            {/* 10. Full-width divider */}
             <motion.div
               variants={itemFade(0.78)}
               initial="hidden"
               animate="visible"
-              className="w-full h-px mb-5 sm:mb-7 md:mb-8 rounded-full"
-              style={{
-                backgroundColor: content.theme.sandBeige,
-                opacity: 0.55,
-              }}
+              className="w-full h-px rounded-full"
+              style={{ backgroundColor: content.theme.sandBeige, opacity: 0.55, marginBottom: 24 }}
             />
 
-            {/* 11. Two-Column Row: DATE | VENUE with Roomy Spacing */}
+            {/* 11. Date / Venue row */}
             <motion.div
               variants={itemFade(0.84)}
               initial="hidden"
               animate="visible"
-              className="w-full grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6 md:gap-8 mb-5 sm:mb-7 md:mb-8 px-2 max-w-full"
+              className="w-full grid grid-cols-[1fr_auto_1fr] items-center px-2 max-w-full"
+              style={{ marginBottom: 24, columnGap: 20 }}
             >
-              {/* Column 1: Date */}
               <div className="flex flex-col items-center">
                 <span
-                  className="text-[10px] sm:text-[11px] md:text-xs font-semibold tracking-[0.18em] uppercase mb-1"
-                  style={{ color: content.theme.softSage }}
+                  className="text-[10px] sm:text-[11px] md:text-xs font-semibold tracking-[0.18em] uppercase"
+                  style={{ color: content.theme.softSage, marginBottom: 4 }}
                 >
                   {content.dateLabel}
                 </span>
-                <span
-                  className="text-sm sm:text-base md:text-lg font-semibold"
-                  style={{ color: content.theme.deepBark }}
-                >
+                <span className="text-sm sm:text-base md:text-lg font-semibold" style={{ color: content.theme.deepBark }}>
                   {content.date}
                 </span>
               </div>
 
-              {/* Vertical Divider */}
               <div
-                className="h-10 sm:h-12 w-px rounded-full"
-                style={{
-                  backgroundColor: content.theme.sandBeige,
-                  opacity: 0.65,
-                }}
+                className="w-px rounded-full"
+                style={{ height: 44, backgroundColor: content.theme.sandBeige, opacity: 0.65 }}
               />
 
-              {/* Column 2: Venue */}
               <div className="flex flex-col items-center">
                 <span
-                  className="text-[10px] sm:text-[11px] md:text-xs font-semibold tracking-[0.18em] uppercase mb-1"
-                  style={{ color: content.theme.softSage }}
+                  className="text-[10px] sm:text-[11px] md:text-xs font-semibold tracking-[0.18em] uppercase"
+                  style={{ color: content.theme.softSage, marginBottom: 4 }}
                 >
                   {content.venueLabel}
                 </span>
@@ -262,19 +253,16 @@ export default function Letter() {
               </div>
             </motion.div>
 
-            {/* 12. Thin Divider */}
+            {/* 12. Divider */}
             <motion.div
               variants={itemFade(0.9)}
               initial="hidden"
               animate="visible"
-              className="w-full h-px mb-4 sm:mb-6 md:mb-7 rounded-full"
-              style={{
-                backgroundColor: content.theme.sandBeige,
-                opacity: 0.55,
-              }}
+              className="w-full h-px rounded-full"
+              style={{ backgroundColor: content.theme.sandBeige, opacity: 0.55, marginBottom: 20 }}
             />
 
-            {/* 13. Small Italic Footer with Floating Buddha Lotus Glyph */}
+            {/* 13. Footer */}
             <motion.div
               variants={itemFade(0.95)}
               initial="hidden"
