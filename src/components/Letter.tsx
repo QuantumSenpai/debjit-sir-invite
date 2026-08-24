@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { content } from "@/data/content";
 import InkReveal from "@/components/animations/InkReveal";
 import SparkleBurst from "@/components/animations/SparkleBurst";
+import FallingPetals from "@/components/animations/FallingPetals";
 
 export default function Letter() {
   const [nameSparkles, setNameSparkles] = useState(false);
@@ -17,13 +18,13 @@ export default function Letter() {
   });
 
   const cardVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.97, y: 12 },
+    hidden: { opacity: 0, scale: 0.97, y: 14 },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.55,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -43,7 +44,7 @@ export default function Letter() {
   });
 
   return (
-    <div className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 py-5 sm:py-8 md:py-12 overflow-x-hidden">
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-8 sm:py-12 md:py-16 overflow-x-hidden">
       {/* 1. Atmospheric Buddha Photo Background Layer */}
       <div
         className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
@@ -92,9 +93,12 @@ export default function Letter() {
         </motion.div>
       </div>
 
-      {/* 2. Main Letter Card - Proportionally Capped at 520px with Fluid Internal Spacing */}
+      {/* 2. Ambient Falling Blossom Petals Layer (Z-1) */}
+      <FallingPetals />
+
+      {/* 3. Main Letter Card - Generous Breathing Room, Softer Curves, Elegant Typography */}
       <motion.main
-        className="relative z-10 w-full max-w-[390px] sm:max-w-[490px] md:max-w-[520px] mx-auto my-auto transition-transform duration-300 ease-out hover:scale-[1.008]"
+        className="relative z-10 w-full max-w-[400px] sm:max-w-[500px] md:max-w-[540px] mx-auto my-auto transition-transform duration-300 ease-out hover:scale-[1.008]"
         variants={cardVariants}
         initial="hidden"
         animate="visible"
@@ -103,20 +107,20 @@ export default function Letter() {
           setTimeout(() => setNameSparkles(true), 400);
         }}
       >
-        {/* Outer Frame Container with Soft Drop Shadow & Sage Outline */}
+        {/* Outer Frame Container with Soft Drop Shadow & Rounded-3xl Curves */}
         <div
-          className="w-full rounded-2xl md:rounded-3xl p-2 sm:p-2.5 md:p-3"
+          className="w-full rounded-3xl p-2.5 sm:p-3.5 md:p-4"
           style={{
             backgroundColor: "rgba(242, 234, 224, 0.97)",
             backdropFilter: "blur(14px)",
             WebkitBackdropFilter: "blur(14px)",
             border: `1px solid ${content.theme.sage}75`,
-            boxShadow: `0 16px 40px -8px rgba(30, 51, 44, 0.18), 0 4px 14px rgba(30, 51, 44, 0.08)`,
+            boxShadow: `0 20px 48px -10px rgba(30, 51, 44, 0.2), 0 6px 16px rgba(30, 51, 44, 0.08)`,
           }}
         >
-          {/* Inset Inner Frame Container */}
+          {/* Inset Inner Frame Container with Generous Breathing Room (p-7 sm:p-9 md:p-11) */}
           <div
-            className="w-full rounded-xl md:rounded-2xl p-4.5 sm:p-7 md:p-9 flex flex-col items-center text-center"
+            className="w-full rounded-2xl p-7 sm:p-9 md:p-11 flex flex-col items-center text-center"
             style={{
               border: `1px solid ${content.theme.sage}45`,
               backgroundColor: "rgba(242, 234, 224, 0.75)",
@@ -127,7 +131,7 @@ export default function Letter() {
               variants={itemFade(0.05)}
               initial="hidden"
               animate="visible"
-              className="text-xs sm:text-sm font-semibold tracking-[0.24em] uppercase mb-2"
+              className="text-xs sm:text-sm font-semibold tracking-[0.24em] uppercase mb-2.5"
               style={{ color: content.theme.oak }}
             >
               {content.eyebrowLabel}
@@ -138,7 +142,7 @@ export default function Letter() {
               variants={itemFade(0.1)}
               initial="hidden"
               animate="visible"
-              className="mb-2.5 sm:mb-3 flex justify-center"
+              className="mb-3.5 sm:mb-4 flex justify-center"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -149,20 +153,20 @@ export default function Letter() {
               </svg>
             </motion.div>
 
-            {/* 3. Headline: Happy Teacher's Day with Sequential InkReveal Stroke Animations */}
-            <div className="mb-3 sm:mb-4 flex flex-col items-center w-full">
+            {/* 3. Headline: Happy Teacher's Day (Semibold 600 Calligraphic Serif) */}
+            <div className="mb-4 sm:mb-5 flex flex-col items-center w-full">
               <div className="w-full flex justify-center">
                 <InkReveal
                   text={content.headlineHappy}
                   delay={0.15}
-                  className="font-serif-heading text-3xl sm:text-4xl md:text-5xl font-semibold leading-none tracking-tight"
+                  className="font-serif-heading text-3xl sm:text-4xl md:text-5xl font-semibold leading-none tracking-normal"
                 />
               </div>
-              <div className="w-full flex justify-center mt-1">
+              <div className="w-full flex justify-center mt-1 sm:mt-1.5">
                 <InkReveal
                   text={content.headlineTeachersDay}
                   delay={0.38}
-                  className="font-serif-heading italic text-2xl sm:text-3xl md:text-4xl font-normal leading-tight"
+                  className="font-serif-heading italic text-2xl sm:text-3xl md:text-4xl font-normal leading-tight tracking-normal"
                 />
               </div>
             </div>
@@ -172,27 +176,27 @@ export default function Letter() {
               variants={itemFade(0.48)}
               initial="hidden"
               animate="visible"
-              className="w-12 sm:w-16 h-px mb-3 sm:mb-4"
+              className="w-14 sm:w-18 h-px mb-4 sm:mb-5"
               style={{ backgroundColor: content.theme.oak, opacity: 0.45 }}
             />
 
-            {/* 5. Body Message Paragraph */}
+            {/* 5. Body Message Paragraph (Comfortable leading and generous margins) */}
             <motion.p
               variants={itemFade(0.55)}
               initial="hidden"
               animate="visible"
-              className="text-[15px] sm:text-base md:text-[16.5px] leading-relaxed md:leading-[1.7] font-normal mb-3.5 sm:mb-5 max-w-[330px] sm:max-w-md md:max-w-lg"
-              style={{ color: content.theme.ink, opacity: 0.88 }}
+              className="font-sans-body text-[15px] sm:text-base md:text-[16.5px] leading-relaxed md:leading-[1.75] font-normal mb-5 sm:mb-6 max-w-[340px] sm:max-w-md md:max-w-lg"
+              style={{ color: content.theme.ink, opacity: 0.86 }}
             >
               {content.letterBody}
             </motion.p>
 
-            {/* 6. Teacher Name via InkReveal (Sequenced After Headline) */}
-            <div className="relative mb-1 sm:mb-1.5 w-full flex justify-center items-center">
+            {/* 6. Teacher Name via InkReveal (Semibold 600 Calligraphic Serif) */}
+            <div className="relative mb-1.5 sm:mb-2 w-full flex justify-center items-center">
               <InkReveal
                 text={content.teacherName}
                 delay={0.65}
-                className="font-serif-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight"
+                className="font-serif-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-normal leading-tight"
               />
               <SparkleBurst trigger={nameSparkles} count={4} minRadius={20} maxRadius={50} />
             </div>
@@ -202,7 +206,7 @@ export default function Letter() {
               variants={itemFade(0.72)}
               initial="hidden"
               animate="visible"
-              className="text-xs sm:text-sm font-medium tracking-[0.18em] uppercase mb-3.5 sm:mb-5"
+              className="text-xs sm:text-sm font-medium tracking-[0.18em] uppercase mb-5 sm:mb-6"
               style={{ color: content.theme.sage }}
             >
               {content.subtitle}
@@ -213,7 +217,7 @@ export default function Letter() {
               variants={itemFade(0.78)}
               initial="hidden"
               animate="visible"
-              className="w-full h-px mb-3 sm:mb-4"
+              className="w-full h-px mb-4 sm:mb-5"
               style={{ backgroundColor: content.theme.sage, opacity: 0.3 }}
             />
 
@@ -222,12 +226,12 @@ export default function Letter() {
               variants={itemFade(0.84)}
               initial="hidden"
               animate="visible"
-              className="w-full grid grid-cols-[1fr_auto_1fr] items-center gap-2.5 sm:gap-4 mb-3 sm:mb-4"
+              className="w-full grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6 mb-4 sm:mb-5"
             >
               {/* Column 1: Date */}
               <div className="flex flex-col items-center">
                 <span
-                  className="text-[10px] sm:text-xs font-semibold tracking-[0.16em] uppercase mb-0.5"
+                  className="text-[10.5px] sm:text-xs font-semibold tracking-[0.16em] uppercase mb-1"
                   style={{ color: content.theme.sage }}
                 >
                   {content.dateLabel}
@@ -242,20 +246,20 @@ export default function Letter() {
 
               {/* Vertical Divider */}
               <div
-                className="h-8 sm:h-9 w-px"
+                className="h-9 sm:h-10 w-px"
                 style={{ backgroundColor: content.theme.sage, opacity: 0.35 }}
               />
 
               {/* Column 2: Venue */}
               <div className="flex flex-col items-center">
                 <span
-                  className="text-[10px] sm:text-xs font-semibold tracking-[0.16em] uppercase mb-0.5"
+                  className="text-[10.5px] sm:text-xs font-semibold tracking-[0.16em] uppercase mb-1"
                   style={{ color: content.theme.sage }}
                 >
                   {content.venueLabel}
                 </span>
                 <span
-                  className="text-xs sm:text-sm md:text-base font-semibold leading-snug text-center break-words max-w-[64%] sm:max-w-[70%]"
+                  className="text-xs sm:text-sm md:text-base font-semibold leading-snug text-center break-words max-w-[66%] sm:max-w-[72%]"
                   style={{ color: content.theme.ink }}
                 >
                   {content.venue}
@@ -268,7 +272,7 @@ export default function Letter() {
               variants={itemFade(0.9)}
               initial="hidden"
               animate="visible"
-              className="w-full h-px mb-2.5 sm:mb-3"
+              className="w-full h-px mb-3.5 sm:mb-4"
               style={{ backgroundColor: content.theme.sage, opacity: 0.3 }}
             />
 
