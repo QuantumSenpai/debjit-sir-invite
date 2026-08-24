@@ -1,11 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F2EAE0;
-  --ink: #3A362F;
-  --sage: #8A9683;
-  --oak: #C89968;
-  --deep-anchor: #1E332C;
+  --sand-beige: #C9B8A8;
+  --oat-milk: #F1E9DD;
+  --soft-sage: #8A9A82;
+  --light-oak-wood: #B98F62;
+  --stone-gray: #A8A29A;
+  --deep-bark: #4A3F33;
+  --cream: #FAF6EF;
+
+  --background: var(--oat-milk);
+  --foreground: var(--deep-bark);
 }
 
 * {
@@ -18,8 +23,8 @@
 html, body {
   width: 100%;
   min-height: 100%;
-  background-color: var(--background);
-  color: var(--ink);
+  background-color: var(--oat-milk);
+  color: var(--deep-bark);
   overflow-x: hidden;
   user-select: none;
   -webkit-user-select: none;
@@ -34,112 +39,182 @@ html, body {
   font-optical-sizing: auto;
 }
 
+/* Custom hide scrollbars utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Reduced Motion Accessibility */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
 }
 
-/* Ambient Blobs Drift Animation */
-@keyframes ambientDrift1 {
+/* Linen texture fine subtle weave */
+.linen-texture {
+  background-color: var(--oat-milk);
+  background-image: 
+    radial-gradient(var(--sand-beige) 0.6px, transparent 0.6px),
+    radial-gradient(var(--cream) 0.6px, var(--oat-milk) 0.6px);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+}
+
+/* Zen Ultra-Slow Radial Washes (90s - 120s) */
+@keyframes washDrift1 {
   0% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    transform: translate3d(0%, 0%, 0) scale(1) rotate(0deg);
   }
   33% {
-    transform: translate3d(24px, -32px, 0) scale(1.08) rotate(35deg);
+    transform: translate3d(6%, -8%, 0) scale(1.1) rotate(40deg);
   }
   66% {
-    transform: translate3d(-18px, 24px, 0) scale(0.96) rotate(70deg);
+    transform: translate3d(-5%, 6%, 0) scale(0.92) rotate(80deg);
   }
   100% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    transform: translate3d(0%, 0%, 0) scale(1) rotate(0deg);
   }
 }
 
-@keyframes ambientDrift2 {
+@keyframes washDrift2 {
   0% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    transform: translate3d(0%, 0%, 0) scale(1) rotate(0deg);
   }
   33% {
-    transform: translate3d(-28px, 20px, 0) scale(0.92) rotate(-45deg);
+    transform: translate3d(-7%, 5%, 0) scale(0.95) rotate(-50deg);
   }
   66% {
-    transform: translate3d(20px, -28px, 0) scale(1.1) rotate(-90deg);
+    transform: translate3d(8%, -6%, 0) scale(1.08) rotate(-100deg);
   }
   100% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    transform: translate3d(0%, 0%, 0) scale(1) rotate(0deg);
   }
 }
 
-/* Sacred Geometry Ambient Animations */
-@keyframes spinSlow {
+@keyframes washDrift3 {
+  0% {
+    transform: translate3d(0%, 0%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-4%, -5%, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(0%, 0%, 0) scale(1);
+  }
+}
+
+/* 200s Serene Primary Mandala Rotation */
+@keyframes mandalaRotate {
   from {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
-@keyframes pulseLotus {
+/* 72s Distinct Secondary Concentric Mandala Ring Counter-Rotation */
+@keyframes mandalaCounterRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+/* Dust-Mote Drift Loops (12s - 18s) */
+@keyframes moteFloat1 {
   0%, 100% {
-    transform: scale(0.94);
-    opacity: 0.12;
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.15;
   }
   50% {
-    transform: scale(1.04);
-    opacity: 0.18;
+    transform: translate3d(18px, -32px, 0) scale(1.2);
+    opacity: 0.35;
   }
 }
 
-@keyframes floatSlow1 {
+@keyframes moteFloat2 {
   0%, 100% {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.2;
   }
   50% {
-    transform: translate3d(8px, -14px, 0);
+    transform: translate3d(-24px, 28px, 0) scale(0.85);
+    opacity: 0.4;
   }
 }
 
-@keyframes floatSlow2 {
+@keyframes moteFloat3 {
   0%, 100% {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) scale(1.1);
+    opacity: 0.25;
   }
   50% {
-    transform: translate3d(-10px, 12px, 0);
+    transform: translate3d(20px, 22px, 0) scale(0.9);
+    opacity: 0.1;
   }
 }
 
-.animate-blob-1 {
-  animation: ambientDrift1 28s ease-in-out infinite;
+@keyframes malletPulse {
+  0%, 100% {
+    transform: scale(0.98);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.animate-wash-1 {
+  animation: washDrift1 96s ease-in-out infinite;
   will-change: transform;
 }
 
-.animate-blob-2 {
-  animation: ambientDrift2 32s ease-in-out infinite;
+.animate-wash-2 {
+  animation: washDrift2 110s ease-in-out infinite;
   will-change: transform;
 }
 
-.animate-spin-slow {
-  animation: spinSlow 85s linear infinite;
+.animate-wash-3 {
+  animation: washDrift3 120s ease-in-out infinite;
   will-change: transform;
 }
 
-.animate-pulse-lotus {
-  animation: pulseLotus 6s ease-in-out infinite;
+.animate-mandala-slow {
+  animation: mandalaRotate 200s linear infinite;
+  will-change: transform;
+}
+
+.animate-mandala-ring-2 {
+  animation: mandalaCounterRotate 72s linear infinite;
+  will-change: transform;
+}
+
+.animate-mote-1 {
+  animation: moteFloat1 13s ease-in-out infinite;
   will-change: transform, opacity;
 }
 
-.animate-float-slow-1 {
-  animation: floatSlow1 9s ease-in-out infinite;
-  will-change: transform;
+.animate-mote-2 {
+  animation: moteFloat2 16s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
-.animate-float-slow-2 {
-  animation: floatSlow2 11s ease-in-out infinite;
+.animate-mote-3 {
+  animation: moteFloat3 18s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-mallet-pulse {
+  animation: malletPulse 4s ease-in-out infinite;
   will-change: transform;
 }

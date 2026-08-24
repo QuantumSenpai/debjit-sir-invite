@@ -13,8 +13,11 @@ export default function Home() {
   return (
     <div
       className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-x-hidden"
-      style={{ backgroundColor: content.theme.background }}
+      style={{ backgroundColor: content.theme.oatMilk }}
     >
+      {/* Zen Ambient Background Layer */}
+      <AmbientBackground />
+
       <AnimatePresence mode="wait">
         {!isOpen ? (
           <Envelope key="envelope-screen" onOpen={() => setIsOpen(true)} />
@@ -24,10 +27,9 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
-            className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-x-hidden"
+            transition={{ duration: 0.65, ease: "easeOut" }}
+            className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-x-hidden z-10"
           >
-            <AmbientBackground />
             <Letter />
           </motion.div>
         )}

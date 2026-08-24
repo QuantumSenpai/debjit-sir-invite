@@ -6,8 +6,8 @@ import { content } from "@/data/content";
 
 interface PetalConfig {
   id: number;
-  startX: number; // percentage across screen (0 to 100)
-  drift: number; // horizontal sway px
+  startX: number;
+  drift: number;
   size: number;
   duration: number;
   delay: number;
@@ -16,11 +16,10 @@ interface PetalConfig {
 }
 
 const PETAL_COLORS = [
-  "#E8C5B8", // Soft blush rose
-  "#DFB2A4", // Warm blossom petal
-  content.theme.oak, // #C89968 Oak petal
-  "#D9B08F", // Golden petal
-  "#F2D7CE", // Pale cherry blossom
+  content.theme.sandBeige,
+  content.theme.softSage,
+  content.theme.lightOakWood,
+  content.theme.cream,
 ];
 
 const PETALS: PetalConfig[] = [
@@ -28,10 +27,10 @@ const PETALS: PetalConfig[] = [
   { id: 2, startX: 20, drift: -45, size: 12, duration: 13, delay: 2.5, rotateDirection: -1, color: PETAL_COLORS[1] },
   { id: 3, startX: 35, drift: 50, size: 16, duration: 9.5, delay: 1, rotateDirection: 1, color: PETAL_COLORS[2] },
   { id: 4, startX: 50, drift: -30, size: 11, duration: 14, delay: 4, rotateDirection: -1, color: PETAL_COLORS[3] },
-  { id: 5, startX: 62, drift: 40, size: 15, duration: 10.5, delay: 0.5, rotateDirection: 1, color: PETAL_COLORS[4] },
-  { id: 6, startX: 75, drift: -55, size: 13, duration: 12.5, delay: 3, rotateDirection: -1, color: PETAL_COLORS[0] },
-  { id: 7, startX: 88, drift: 35, size: 17, duration: 11.5, delay: 1.8, rotateDirection: 1, color: PETAL_COLORS[1] },
-  { id: 8, startX: 95, drift: -40, size: 12, duration: 13.5, delay: 5, rotateDirection: -1, color: PETAL_COLORS[2] },
+  { id: 5, startX: 62, drift: 40, size: 15, duration: 10.5, delay: 0.5, rotateDirection: 1, color: PETAL_COLORS[0] },
+  { id: 6, startX: 75, drift: -55, size: 13, duration: 12.5, delay: 3, rotateDirection: -1, color: PETAL_COLORS[1] },
+  { id: 7, startX: 88, drift: 35, size: 17, duration: 11.5, delay: 1.8, rotateDirection: 1, color: PETAL_COLORS[2] },
+  { id: 8, startX: 95, drift: -40, size: 12, duration: 13.5, delay: 5, rotateDirection: -1, color: PETAL_COLORS[3] },
 ];
 
 function subscribeReducedMotion(callback: () => void) {
@@ -57,7 +56,6 @@ export default function FallingPetals() {
     getReducedMotionServerSnapshot
   );
 
-  // If reduced motion is requested, render 3 gentle static petals
   if (reducedMotion) {
     return (
       <div
@@ -118,7 +116,6 @@ export default function FallingPetals() {
             fill={p.color}
             className="drop-shadow-sm"
           >
-            {/* Elegant organic blossom petal silhouette */}
             <path d="M12 2C7.5 5.5 5.5 12 12 22C18.5 12 16.5 5.5 12 2Z" />
           </svg>
         </motion.div>

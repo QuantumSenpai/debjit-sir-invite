@@ -17,19 +17,22 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: content.theme.oak,
+          backgroundColor: content.theme.lightOakWood,
           borderRadius: "50%",
-          border: `2px solid ${content.theme.background}`,
+          border: `2px solid ${content.theme.oatMilk}`,
         }}
       >
-        {/* 4-Pointed Sparkle Star Motif */}
+        {/* Zen Singing Bowl Resonance Dot Icon */}
         <svg
-          width="28"
-          height="28"
+          width="26"
+          height="26"
           viewBox="0 0 24 24"
-          fill={content.theme.background}
+          fill="none"
+          stroke={content.theme.oatMilk}
+          strokeWidth="2"
         >
-          <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" />
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="12" r="3" fill={content.theme.oatMilk} />
         </svg>
       </div>
     ),

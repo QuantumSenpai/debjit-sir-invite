@@ -25,11 +25,10 @@ interface SparkleBurstProps {
   onComplete?: () => void;
 }
 
-// Strict palette adherence: oak, background, sage
 const SPARKLE_COLORS = [
-  content.theme.oak,
-  content.theme.background,
-  content.theme.sage,
+  content.theme.lightOakWood,
+  content.theme.sandBeige,
+  content.theme.softSage,
 ];
 
 function subscribeReducedMotion(callback: () => void) {
@@ -82,10 +81,10 @@ export default function SparkleBurst({
       const angle = (i / count) * (Math.PI * 2) + ((i * 19) % 11) * 0.08;
       const distance =
         minRadius + (((i * 23) % 13) / 13) * (maxRadius - minRadius);
-      const size = 8 + ((i * 17) % 10); // 8px to 17px
+      const size = 8 + ((i * 17) % 10);
       const rotate = (((i * 71) % 360) - 180) * 1.5;
-      const delay = (((i * 31) % 10) / 10) * 0.08; // 0 to 0.08s stagger
-      const duration = 0.75 + (((i * 13) % 5) / 5) * 0.2; // 0.75s to 0.95s
+      const delay = (((i * 31) % 10) / 10) * 0.08;
+      const duration = 0.75 + (((i * 13) % 5) / 5) * 0.2;
       const color = SPARKLE_COLORS[i % SPARKLE_COLORS.length];
 
       return {
@@ -151,7 +150,6 @@ export default function SparkleBurst({
                 viewBox="0 0 24 24"
                 style={{ width: p.size, height: p.size }}
                 fill={p.color}
-                className="drop-shadow-[0_1px_4px_rgba(200,153,104,0.4)]"
               >
                 <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" />
               </svg>

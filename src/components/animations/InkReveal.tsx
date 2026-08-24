@@ -19,7 +19,6 @@ export default function InkReveal({
 
   return (
     <div className={`relative inline-block overflow-hidden ${className}`}>
-      {/* SVG Mask Definition for Brush Stroke Reveal */}
       <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
         <defs>
           <clipPath id={`ink-clip-${maskId}`} clipPathUnits="objectBoundingBox">
@@ -39,12 +38,11 @@ export default function InkReveal({
         </defs>
       </svg>
 
-      {/* Animated Text Container with Ink Spread effect */}
       <motion.div
         style={{
           clipPath: `url(#ink-clip-${maskId})`,
           WebkitClipPath: `url(#ink-clip-${maskId})`,
-          color: content.theme.deepAnchor,
+          color: content.theme.deepBark,
         }}
         initial={{ opacity: 0.85, filter: "blur(4px)" }}
         animate={{ opacity: 1, filter: "blur(0px)" }}

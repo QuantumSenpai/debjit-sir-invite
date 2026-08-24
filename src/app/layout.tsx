@@ -21,13 +21,13 @@ export const metadata: Metadata = {
   title: content.appTitle,
   description: content.appDescription,
   authors: [{ name: content.sectionLine }],
-  keywords: ["Teacher's Day", "Invitation", content.teacherName],
+  keywords: ["Teacher's Day", "Invitation", content.teacherName, "CSE Section D"],
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: content.theme.background,
+  themeColor: content.theme.oatMilk,
 };
 
 export default function RootLayout({
@@ -42,10 +42,10 @@ export default function RootLayout({
       className={`${fraunces.variable} ${plusJakarta.variable} h-full antialiased`}
     >
       <body
-        className="min-h-full w-full flex flex-col items-center justify-center font-sans-body"
+        className="min-h-full w-full flex flex-col items-center justify-center font-sans-body selection:bg-[#B98F62]/20 selection:text-[#4A3F33]"
         style={{
-          backgroundColor: content.theme.background,
-          color: content.theme.ink,
+          backgroundColor: content.theme.oatMilk,
+          color: content.theme.deepBark,
         }}
       >
         {children}
