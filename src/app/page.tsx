@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div
-      className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-x-hidden"
+      className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center overflow-x-hidden"
       style={{ backgroundColor: content.theme.oatMilk }}
     >
       {/* Zen Ambient Background Layer */}
@@ -28,7 +28,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.65, ease: "easeOut" }}
-            className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-x-hidden z-10"
+            className="relative w-full overflow-x-hidden z-10"
           >
             <Letter />
           </motion.div>
