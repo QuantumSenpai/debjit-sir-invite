@@ -34,7 +34,7 @@ export interface Content {
 
 export const content: Content = {
   teacherName: "Debjit Ghosh",
-  role: "Faculty Mentor",
+  role: "Faculty & Mentor",
   subject: "CSE",
   subtitle: "Faculty Mentor · CSE",
   date: "September - 3, 2026",
