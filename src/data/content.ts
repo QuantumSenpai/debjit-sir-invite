@@ -60,7 +60,7 @@ export const content: Content = {
   dateLabel: "DATE",
   venueLabel: "VENUE",
   occasionLabel: "OCCASION",
-  footerText: "Created with gratitude & love",
+  footerText: "Kindly grace us with your presence",
   appTitle: "Teacher's Day Invitation | Debjit Ghosh",
   appDescription: "Personalized Teacher's Day invitation for Debjit Ghosh.",
 };
