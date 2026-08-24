@@ -25,12 +25,11 @@ interface SparkleBurstProps {
   onComplete?: () => void;
 }
 
+// Strict palette adherence: oak, background, sage
 const SPARKLE_COLORS = [
-  content.theme.oak, // #C89968
-  "#E8B872", // Bright amber gold
-  "#F5D7A1", // Luminous light gold
-  "#FFF5E4", // Warm white gold
-  content.theme.background, // Parchment white
+  content.theme.oak,
+  content.theme.background,
+  content.theme.sage,
 ];
 
 function subscribeReducedMotion(callback: () => void) {
@@ -51,9 +50,9 @@ function getReducedMotionServerSnapshot() {
 
 export default function SparkleBurst({
   trigger,
-  count = 16,
-  minRadius = 60,
-  maxRadius = 120,
+  count = 14,
+  minRadius = 50,
+  maxRadius = 110,
   origin = null,
   className = "",
   onComplete,
@@ -72,7 +71,7 @@ export default function SparkleBurst({
       const timer = setTimeout(() => {
         setActive(false);
         if (onComplete) onComplete();
-      }, 1200);
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [trigger, reducedMotion, onComplete]);
@@ -83,10 +82,10 @@ export default function SparkleBurst({
       const angle = (i / count) * (Math.PI * 2) + ((i * 19) % 11) * 0.08;
       const distance =
         minRadius + (((i * 23) % 13) / 13) * (maxRadius - minRadius);
-      const size = 9 + ((i * 17) % 12); // 9px to 20px
-      const rotate = (((i * 71) % 360) - 180) * 1.5; // -270deg to +270deg
-      const delay = (((i * 31) % 10) / 10) * 0.1; // 0 to 0.1s stagger
-      const duration = 0.85 + (((i * 13) % 5) / 5) * 0.25; // 0.85s to 1.1s
+      const size = 8 + ((i * 17) % 10); // 8px to 17px
+      const rotate = (((i * 71) % 360) - 180) * 1.5;
+      const delay = (((i * 31) % 10) / 10) * 0.08; // 0 to 0.08s stagger
+      const duration = 0.75 + (((i * 13) % 5) / 5) * 0.2; // 0.75s to 0.95s
       const color = SPARKLE_COLORS[i % SPARKLE_COLORS.length];
 
       return {
@@ -137,14 +136,14 @@ export default function SparkleBurst({
               animate={{
                 x: p.x,
                 y: p.y,
-                scale: [0, 1.25, 1, 0],
-                opacity: [0, 1, 1, 0.9, 0],
+                scale: [0, 1.2, 1, 0],
+                opacity: [0, 1, 1, 0.85, 0],
                 rotate: p.rotate,
               }}
               transition={{
                 duration: p.duration,
                 delay: p.delay,
-                times: [0, 0.15, 0.7, 0.88, 1],
+                times: [0, 0.15, 0.7, 0.85, 1],
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
@@ -152,7 +151,7 @@ export default function SparkleBurst({
                 viewBox="0 0 24 24"
                 style={{ width: p.size, height: p.size }}
                 fill={p.color}
-                className="drop-shadow-[0_2px_8px_rgba(232,184,114,0.65)]"
+                className="drop-shadow-[0_1px_4px_rgba(200,153,104,0.4)]"
               >
                 <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" />
               </svg>

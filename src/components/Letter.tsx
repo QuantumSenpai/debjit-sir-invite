@@ -2,13 +2,19 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion, type Variants } from "framer-motion";
+import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { content } from "@/data/content";
 import InkReveal from "@/components/animations/InkReveal";
 import SparkleBurst from "@/components/animations/SparkleBurst";
 
 export default function Letter() {
   const [nameSparkles, setNameSparkles] = useState(false);
+
+  // Subtle GPU-accelerated scroll parallax for the atmospheric background (capped at 30px)
+  const { scrollY } = useScroll();
+  const backgroundY = useTransform(scrollY, [0, 450], [0, -30], {
+    clamp: true,
+  });
 
   const cardVariants: Variants = {
     hidden: { opacity: 0, scale: 0.97, y: 16 },
@@ -38,13 +44,14 @@ export default function Letter() {
 
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 py-8 sm:py-12 overflow-x-hidden">
-      {/* 1. Atmospheric Buddha Photo Background Layer (Fixed, 40% Opacity, Muted Filter) */}
+      {/* 1. Atmospheric Buddha Photo Background Layer with Subtle Scroll Parallax */}
       <div
-        className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden"
+        className="fixed -inset-x-0 -top-4 -bottom-10 pointer-events-none z-0 overflow-hidden"
         aria-hidden="true"
       >
         <motion.div
           className="relative w-full h-full overflow-hidden"
+          style={{ y: backgroundY, willChange: "transform" }}
           animate={{ scale: [1.0, 1.04, 1.0] }}
           transition={{
             duration: 22,
