@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" width="100%" height="100%" fill="none">
+  <!-- Hand-drawn line-art meditating Buddha in lotus posture -->
+  <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Gentle Halo / Aura line -->
+    <circle cx="120" cy="80" r="54" stroke-dasharray="3 4" opacity="0.6" />
+    <circle cx="120" cy="80" r="62" stroke-dasharray="1 6" opacity="0.4" />
+
+    <!-- Ushnisha & Hair knot -->
+    <path d="M120 38 C117 38 114 42 114 47 C110 49 105 54 105 62 C105 73 111 82 120 82 C129 82 135 73 135 62 C135 54 130 49 126 47 C126 42 123 38 120 38 Z" />
+    <path d="M118 36 Q120 28 122 36" />
+    <circle cx="120" cy="37" r="1.5" fill="currentColor" />
+
+    <!-- Facial Serenity Features (Minimalist line art) -->
+    <!-- Eyebrow arches -->
+    <path d="M111 60 Q115 58 118 61" opacity="0.75" />
+    <path d="M129 60 Q125 58 122 61" opacity="0.75" />
+    <!-- Closed meditative eyes -->
+    <path d="M112 65 Q115 67 118 65" opacity="0.8" />
+    <path d="M128 65 Q125 67 122 65" opacity="0.8" />
+    <!-- Urna dot on forehead -->
+    <circle cx="120" cy="57" r="1" fill="currentColor" />
+    <!-- Nose line -->
+    <path d="M120 62 L120 70 Q120 72 118 72" opacity="0.7" />
+    <!-- Serene smile line -->
+    <path d="M116 75 Q120 77 124 75" opacity="0.8" />
+
+    <!-- Elongated earlobes -->
+    <path d="M104 60 C102 61 100 68 102 75 C103 76 105 75 105 72 C104 68 103 63 104 60 Z" />
+    <path d="M136 60 C138 61 140 68 138 75 C137 76 135 75 135 72 C136 68 137 63 136 60 Z" />
+
+    <!-- Neck rings -->
+    <path d="M114 84 Q120 87 126 84" opacity="0.6" />
+    <path d="M112 88 Q120 91 128 88" opacity="0.6" />
+
+    <!-- Shoulders & Torso -->
+    <path d="M112 88 C98 94 82 104 74 122 C68 136 68 155 72 174 C75 182 82 184 92 181 C100 178 106 166 108 156 C110 148 112 136 114 126" />
+    <path d="M128 88 C142 94 158 104 166 122 C172 136 172 155 168 174 C165 182 158 184 148 181 C140 178 134 166 132 156 C130 148 128 136 126 126" />
+
+    <!-- Robe Drape lines -->
+    <path d="M112 88 C108 110 106 138 108 166" opacity="0.5" stroke-dasharray="4 2" />
+    <path d="M128 88 C132 110 134 138 132 166" opacity="0.5" stroke-dasharray="4 2" />
+    <path d="M100 115 Q120 130 140 115" opacity="0.6" />
+    <path d="M96 135 Q120 152 144 135" opacity="0.6" />
+
+    <!-- Dhyana Mudra (Hands resting calmly in meditation) -->
+    <path d="M102 168 C102 168 110 176 120 176 C130 176 138 168 138 168 C140 173 134 182 120 182 C106 182 100 173 102 168 Z" />
+    <path d="M112 173 Q120 177 128 173" opacity="0.7" />
+
+    <!-- Crossed Legs in Padmasana Lotus posture -->
+    <path d="M68 172 C56 178 42 190 38 204 C34 216 44 224 60 224 C82 224 104 216 120 216 C136 216 158 224 180 224 C196 224 206 216 202 204 C198 190 184 178 172 172 C160 190 144 204 120 204 C96 204 80 190 68 172 Z" />
+    <!-- Bare Foot soles showing in full lotus -->
+    <ellipse cx="68" cy="204" rx="9" ry="5" transform="rotate(-15 68 204)" opacity="0.7" />
+    <ellipse cx="172" cy="204" rx="9" ry="5" transform="rotate(15 172 204)" opacity="0.7" />
+
+    <!-- Lotus Base Pedestal (Hand-drawn Petals) -->
+    <path d="M120 228 C112 236 108 248 120 258 C132 248 128 236 120 228 Z" />
+    <path d="M106 230 C96 236 86 247 96 256 C106 251 110 242 108 231 Z" />
+    <path d="M134 230 C144 236 154 247 144 256 C134 251 130 242 132 231 Z" />
+    <path d="M86 232 C74 238 66 248 78 254 C88 251 92 243 89 233 Z" />
+    <path d="M154 232 C166 238 174 248 162 254 C152 251 148 243 151 233 Z" />
+    <path d="M64 234 C52 240 46 249 58 253 C68 251 72 244 67 235 Z" />
+    <path d="M176 234 C188 240 194 249 182 253 C172 251 168 244 173 235 Z" />
+
+    <!-- Base wavy line ripple -->
+    <path d="M48 258 Q120 268 192 258" opacity="0.5" />
+    <path d="M60 264 Q120 272 180 264" opacity="0.3" />
+  </g>
+</svg>
