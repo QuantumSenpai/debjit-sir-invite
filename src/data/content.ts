@@ -20,6 +20,7 @@ export interface Content {
   envelopeEyebrow: string;
   envelopeInstruction: string;
   tapToOpenText: string;
+  eyebrowLabel: string;
   letterEyebrow: string;
   headlineHappy: string;
   headlineTeachersDay: string;
@@ -36,8 +37,8 @@ export const content: Content = {
   role: "Faculty Mentor",
   subject: "CSE",
   subtitle: "Faculty Mentor · CSE",
-  date: "September 3, 2026",
-  venue: "AU - 6, Room No. 4201",
+  date: "September 5, 2026",
+  venue: "Main Auditorium, Academic Block C",
   occasion: "Teacher's Day Celebration",
   sectionLine: "Section D · CSE Core · Batch 2026-2028",
   letterBody:
@@ -52,7 +53,8 @@ export const content: Content = {
   envelopeEyebrow: "A SPECIAL INVITATION",
   envelopeInstruction: "Tap the envelope to reveal your invitation",
   tapToOpenText: "Tap to open",
-  letterEyebrow: "YOU ARE CORDIALLY INVITED",
+  eyebrowLabel: "IN HONOUR OF TEACHER'S DAY",
+  letterEyebrow: "IN HONOUR OF TEACHER'S DAY",
   headlineHappy: "Happy",
   headlineTeachersDay: "Teacher's Day",
   dateLabel: "DATE",
