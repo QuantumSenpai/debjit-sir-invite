@@ -37,7 +37,7 @@ export const content: Content = {
   role: "Faculty Mentor",
   subject: "CSE",
   subtitle: "Faculty Mentor · CSE",
-  date: "September 3, 2026",
+  date: "September - 3, 2026",
   venue: "AU - 6, Room No. 4201",
   occasion: "Teacher's Day Celebration",
   sectionLine: "Section D · CSE Core · Batch 2026-2028",
