@@ -37,12 +37,12 @@ export const content: Content = {
   role: "Faculty Mentor",
   subject: "CSE",
   subtitle: "Faculty Mentor · CSE",
-  date: "September 5, 2026",
-  venue: "Main Auditorium, Academic Block C",
+  date: "September 3, 2026",
+  venue: "AU - 6, Room No. 4201",
   occasion: "Teacher's Day Celebration",
   sectionLine: "Section D · CSE Core · Batch 2026-2028",
   letterBody:
-    "Some lessons live beyond the syllabus — the ones about patience, precision, and showing up for a problem until it makes sense. Section D carries a lot of what you taught us, sir. Today, we'd just like to say thank you, and ask you to join us as we celebrate it.",
+    "Some lessons live beyond the syllabus - the ones about patience, precision, and showing up for a problem until it makes sense. Section D carries a lot of what you taught us, sir. Today, we'd just like to say thank you, and ask you to join us as we celebrate it.",
   theme: {
     background: "#F2EAE0",
     ink: "#3A362F",
@@ -62,5 +62,5 @@ export const content: Content = {
   occasionLabel: "OCCASION",
   footerText: "Created with gratitude & love",
   appTitle: "Teacher's Day Invitation | Debjit Ghosh",
-  appDescription: "A clean, minimal, personalized Teacher's Day invitation for Debjit Ghosh.",
+  appDescription: "Personalized Teacher's Day invitation for Debjit Ghosh.",
 };
