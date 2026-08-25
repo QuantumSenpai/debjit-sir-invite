@@ -87,7 +87,7 @@ export default function Letter() {
             style={{
               overflowY: "auto",
               maxHeight: "calc(100svh - 24px)",
-              padding: "36px 24px 36px",
+              padding: "26px 20px 26px",
             }}
           >
             {/* 1. Eyebrow Badge */}
@@ -95,7 +95,7 @@ export default function Letter() {
               variants={itemFade(0.08)}
               initial="hidden"
               animate="visible"
-              style={{ marginBottom: 16 }}
+              style={{ marginBottom: 10 }}
             >
               <div
                 className="inline-flex items-center justify-center rounded-full"
@@ -126,7 +126,7 @@ export default function Letter() {
               variants={itemFade(0.14)}
               initial="hidden"
               animate="visible"
-              style={{ marginBottom: 28 }}
+              style={{ marginBottom: 16 }}
             >
               <BuddhaMotifDivider />
             </motion.div>
@@ -134,7 +134,7 @@ export default function Letter() {
             {/* 3. Heading */}
             <div
               className="flex flex-col items-center w-full"
-              style={{ marginBottom: 20 }}
+              style={{ marginBottom: 14 }}
             >
               <RippleReveal
                 text={content.headlineHappy}
@@ -163,7 +163,7 @@ export default function Letter() {
                 borderRadius: 9999,
                 backgroundColor: content.theme.lightOakWood,
                 opacity: 0.5,
-                marginBottom: 32,
+                marginBottom: 18,
               }}
             />
 
@@ -174,12 +174,12 @@ export default function Letter() {
               animate="visible"
               className="font-sans-body font-normal text-center"
               style={{
-                fontSize: 15,
-                lineHeight: 1.85,
+                fontSize: 14,
+                lineHeight: 1.7,
                 color: content.theme.deepBark,
                 opacity: 0.94,
                 maxWidth: 420,
-                marginBottom: 40,
+                marginBottom: 26,
               }}
             >
               {content.letterBody}
@@ -196,7 +196,7 @@ export default function Letter() {
                 borderRadius: 9999,
                 backgroundColor: content.theme.stoneGray,
                 opacity: 0.45,
-                marginBottom: 24,
+                marginBottom: 14,
               }}
             />
 
@@ -239,7 +239,7 @@ export default function Letter() {
                 fontSize: 12,
                 letterSpacing: "0.2em",
                 color: content.theme.softSage,
-                marginBottom: 32,
+                marginBottom: 18,
               }}
             >
               {content.subtitle}
@@ -254,8 +254,8 @@ export default function Letter() {
               style={{
                 border: `1px solid ${content.theme.sandBeige}60`,
                 borderRadius: 16,
-                padding: "18px 16px",
-                marginBottom: 28,
+                padding: "14px 16px",
+                marginBottom: 14,
               }}
             >
               <div className="flex flex-col items-center">

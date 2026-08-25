@@ -46,7 +46,7 @@ export const content: Content = {
   occasion: "Teacher's Day Celebration",
   sectionLine: "Section D · CSE Core · Batch 2026-2028",
   letterBody:
-    "They say a true mentor doesn't rush the journey; they simply walk beside you until the path becomes clear. Whenever our Mini Project drifted into confusion, you brought us back to center — patient, steady, unhurried, turning every doubt into direction and every deadline into a lesson in calm. Section D warmly invites you to join us this Teacher's Day, sir, as we celebrate the stillness you brought to our chaos.",
+    "They say true understanding isn't memorized, it's built — one clean step leading to the next until the whole pattern makes sense. You showed us how to break things down, trace the logic calmly, and trust the process even when it looked messy. Section D warmly invites you to celebrate this Teacher's Day with us, sir.",
   theme: {
     sandBeige: "#C9B8A8",
     oatMilk: "#F1E9DD",
